@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <!-- Define la codificación de caracteres para mostrar correctamente tildes y emojis. -->
+  <meta charset="UTF-8">
+  <!-- Adapta el ancho de la página al tamaño de la pantalla. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Muestra el título de la aplicación en la pestaña del navegador. -->
+  <title>Control LED Arduino</title>
+  <!-- Carga los estilos de la aplicación. -->
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <!-- Agrupa el contenido principal de la página. -->
+  <main class="contenedor">
+    <!-- Presenta el título y una descripción breve. -->
+    <header>
+      <h1>CONTROL LED ARDUINO</h1>
+      <p class="texto-secundario">Controla un LED desde tu navegador</p>
+    </header>
+
+    <!-- Contiene el estado de la conexión serie y su botón de conexión. -->
+    <section class="conexion" aria-label="Conexión con Arduino">
+      <p id="estadoConexion" role="status" aria-live="polite">Arduino desconectado</p>
+      <button id="btnConectar" type="button">Conectar Arduino</button>
+    </section>
+
+    <!-- Agrupa los indicadores y controles del LED. -->
+    <section class="panel" aria-label="Control del LED">
+      <div id="bombilla" class="bombilla apagado" aria-hidden="true">💡</div>
+      <h2 id="estadoLed" class="badge apagado" aria-live="polite">LED APAGADO</h2>
+      <div class="botones">
+        <button id="btnEncender" class="boton-encender" type="button" disabled>ENCENDER</button>
+        <button id="btnApagar" class="boton-apagar" type="button" disabled>APAGAR</button>
+      </div>
+      <p id="mensaje" role="status" aria-live="polite">Conecta Arduino para comenzar</p>
+    </section>
+
+    <!-- Muestra el nombre del autor y un GIF animado decorativo. -->
+    <footer>
+      <span>Hecho por Alejandro</span>
+      <img
+        class="gif-animado"
+        src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+        alt="Gato animado usando un ordenador"
+        loading="lazy"
+      >
+    </footer>
+  </main>
+
+  <!-- Carga la lógica después de que el navegador haya leído el HTML. -->
+  <script src="script.js"></script>
+</body>
+</html>

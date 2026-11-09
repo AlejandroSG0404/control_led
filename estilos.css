@@ -1,0 +1,217 @@
+/* Define colores, tipografía y medidas reutilizables para la página. */
+:root {
+  color-scheme: light;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #263445;
+  background: #f3f6fa;
+}
+
+/* Centra la tarjeta en la pantalla y limita su ancho. */
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 16px;
+  display: grid;
+  place-items: center;
+  box-sizing: border-box;
+}
+
+/* Presenta el contenido en una tarjeta clara con bordes y sombra suaves. */
+.contenedor {
+  width: min(100%, 520px);
+  padding: 32px;
+  box-sizing: border-box;
+  text-align: center;
+  background: #ffffff;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px rgba(34, 55, 80, 0.12);
+}
+
+/* Elimina el margen superior del encabezado para alinear la tarjeta. */
+header {
+  margin-bottom: 24px;
+}
+
+/* Resalta el título principal en azul. */
+h1 {
+  margin: 0 0 10px;
+  color: #1769aa;
+  font-size: clamp(1.55rem, 5vw, 2rem);
+  letter-spacing: 0.04em;
+}
+
+/* Mantiene los textos secundarios en gris y con buen espaciado. */
+.texto-secundario,
+#mensaje {
+  color: #687789;
+}
+
+/* Coloca el estado de conexión y el botón en una fila adaptable. */
+.conexion {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 22px;
+  padding: 14px 16px;
+  background: #f4f7fb;
+  border-radius: 12px;
+}
+
+/* Evita márgenes extra en el texto del estado de conexión. */
+#estadoConexion {
+  margin: 0;
+  color: #536274;
+  text-align: left;
+}
+
+/* Da al panel de control un fondo ligeramente distinto. */
+.panel {
+  padding: 28px 20px 20px;
+  background: #fafbfd;
+  border: 1px solid #e8edf3;
+  border-radius: 16px;
+}
+
+/* Muestra el emoji de la bombilla a gran tamaño. */
+.bombilla {
+  margin: 2px 0 14px;
+  font-size: 6rem;
+  line-height: 1.15;
+  transition: filter 180ms ease, text-shadow 180ms ease, transform 180ms ease;
+}
+
+/* Atenúa la bombilla cuando el LED está apagado. */
+.bombilla.apagado {
+  filter: grayscale(1);
+  opacity: 0.48;
+}
+
+/* Añade un resplandor amarillo cuando el LED está encendido. */
+.bombilla.encendido {
+  filter: saturate(1.35);
+  text-shadow: 0 0 18px rgba(255, 193, 7, 0.8), 0 0 38px rgba(255, 193, 7, 0.55);
+  transform: scale(1.04);
+}
+
+/* Da al estado del LED apariencia de etiqueta tipo badge. */
+.badge {
+  display: inline-block;
+  margin: 0 0 22px;
+  padding: 8px 14px;
+  border-radius: 999px;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+}
+
+/* Colorea el badge de gris cuando el LED está apagado. */
+.badge.apagado {
+  color: #5f6b78;
+  background: #e9edf1;
+}
+
+/* Colorea el badge de verde claro cuando el LED está encendido. */
+.badge.encendido {
+  color: #176b3a;
+  background: #d9f5e3;
+}
+
+/* Alinea los botones de control y deja espacio entre ellos. */
+.botones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+/* Da a todos los botones un tamaño cómodo y una transición suave. */
+button {
+  min-height: 44px;
+  padding: 11px 18px;
+  border: 0;
+  border-radius: 10px;
+  color: #ffffff;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  transition: filter 150ms ease, transform 150ms ease, box-shadow 150ms ease;
+}
+
+/* Colorea de azul el botón para conectar Arduino. */
+#btnConectar {
+  flex: 0 0 auto;
+  background: #1769aa;
+}
+
+/* Colorea de verde el botón para encender el LED. */
+.boton-encender {
+  background: #218c4b;
+}
+
+/* Colorea de rojo el botón para apagar el LED. */
+.boton-apagar {
+  background: #d64545;
+}
+
+/* Oscurece los botones habilitados al pasar el cursor. */
+button:not(:disabled):hover {
+  filter: brightness(0.9);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(30, 45, 60, 0.15);
+}
+
+/* Muestra los botones deshabilitados en gris y sin interacción de clic. */
+button:disabled {
+  color: #ffffff;
+  background: #b8c0c9;
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+/* Ajusta el mensaje de respuesta del panel. */
+#mensaje {
+  min-height: 1.25em;
+  margin: 20px 0 0;
+}
+
+/* Separa el pie de página y centra el nombre junto al GIF. */
+footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 24px;
+  color: #687789;
+  font-size: 0.9rem;
+}
+
+/* Limita el tamaño del GIF decorativo para que no desplace el contenido. */
+.gif-animado {
+  width: 58px;
+  height: 44px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Apila los controles en pantallas pequeñas para conservar su legibilidad. */
+@media (max-width: 480px) {
+  .contenedor {
+    padding: 24px 18px;
+  }
+
+  .conexion {
+    flex-direction: column;
+  }
+
+  #estadoConexion {
+    text-align: center;
+  }
+
+  .botones {
+    flex-direction: column;
+  }
+
+  .botones button {
+    width: 100%;
+  }
+}
